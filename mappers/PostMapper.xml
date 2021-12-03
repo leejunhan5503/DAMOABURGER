@@ -63,7 +63,7 @@
 			  , A.BURGER.MENU_BRAND = # { menuBrand }
 			  , A.BURGER.MENU_PRICE = # { menuPrice }
 			  , A.BURGER.MENU_RANK = # { menuRank }
-		 WHERE A.BURGER_MENU_CODE = { menuCode }
+		 WHERE A.BURGER_MENU_CODE = # { menuCode }
 	</update>
 	
 	<delete id="deleteBurgerMenu" parameterType="int">
