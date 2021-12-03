@@ -13,5 +13,8 @@
 			</dataSource>
 		</environment>
 	</environments>
+	<mappers>
+	<mapper resource="com/damoa/toyProject/menu/InsertBurgerPost/model/dao/PostMapper.xml"/>
+	</mappers>
 </configuration>
 
