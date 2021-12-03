@@ -1,10 +1,10 @@
-package com.damoa.toyProject.menu.InsertBurgerPost.controller;
+package com.damoa.toyProject.menu.controller;
 
 import java.util.List;
 
-import com.damoa.toyProject.menu.InsertBurgerPost.PostPrintResultView;
-import com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO;
-import com.damoa.toyProject.menu.InsertBurgerPost.model.service.PostService;
+import com.damoa.toyProject.menu.PostPrintResultView;
+import com.damoa.toyProject.menu.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.model.service.PostService;
 
 public class PostController {
 	private final PostService postService;

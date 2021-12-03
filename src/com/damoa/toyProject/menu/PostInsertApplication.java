@@ -1,8 +1,8 @@
-package com.damoa.toyProject.menu.InsertBurgerPost;
+package com.damoa.toyProject.menu;
 
 import java.util.Scanner;
 
-import com.damoa.toyProject.menu.InsertBurgerPost.controller.PostController;
+import com.damoa.toyProject.menu.controller.PostController;
 
 public class PostInsertApplication {
 

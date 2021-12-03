@@ -1,4 +1,4 @@
-package com.damoa.toyProject.menu.InsertBurgerPost.model.dto;
+package com.damoa.toyProject.menu.model.dto;
 
 public class MenuDTO {
 	

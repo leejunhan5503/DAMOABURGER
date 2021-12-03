@@ -1,4 +1,4 @@
-package com.damoa.toyProject.menu.InsertBurgerPost.model.service;
+package com.damoa.toyProject.menu.model.service;
 
 import static com.damoa.toyProject.common.Template.getSqlSession;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.damoa.toyProject.menu.InsertBurgerPost.model.dao.PostMapper;
-import com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.model.dao.PostMapper;
+import com.damoa.toyProject.menu.model.dto.MenuDTO;
 
 public class PostService {
 

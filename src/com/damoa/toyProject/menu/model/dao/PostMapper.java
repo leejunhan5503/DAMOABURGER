@@ -1,8 +1,8 @@
-package com.damoa.toyProject.menu.InsertBurgerPost.model.dao;
+package com.damoa.toyProject.menu.model.dao;
 
 import java.util.List;
 
-import com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.model.dto.MenuDTO;
 
 public interface PostMapper {
 
