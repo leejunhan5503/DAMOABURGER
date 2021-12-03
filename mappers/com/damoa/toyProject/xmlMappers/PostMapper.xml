@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.damoa.toyProject.menu.InsertBurgerPost.model.dao.PostMapper">
+<mapper namespace="com.damoa.toyProject.menu.model.dao.PostMapper">
 
-	<resultMap type="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO" id="menuResultMap">
-		<id property="menuCode" column="BURGER_MENU_CODE"/>
-		<id property="menuName" column="BURGER_MENU_NAME"/>
-		<id property="menuBrand" column="BURGER_MENU_BRAND"/>
-		<id property="menuPrice" column="BURGER_MENU_PRICE"/>
-		<id property="menuRank" column="BURGER_MENU_RANK"/>
-		<id property="userNo" column="USER_NO"/>
+	<resultMap type="MenuDTO" id="menuResultMap">
+		<id property="code" column="BURGER_MENU_CODE"/>
+		<result property="menuName" column="BURGER_MENU_NAME"/>
+		<result property="menuBrand" column="BURGER_MENU_BRAND"/>
+		<result property="menuPrice" column="BURGER_MENU_PRICE"/>
+		<result property="menuRank" column="BURGER_MENU_RANK"/>
+		<result property="userNo" column="USER_NO"/>
 	</resultMap>
 	<select id="selectAllPost" resultMap="menuResultMap">
 		SELECT
