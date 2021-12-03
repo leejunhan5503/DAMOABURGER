@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.damoa.toyProject.menu.InsertBurgerPost.model.dao.PostMapper">
+
+	<resultMap type="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO" id="menuResultMap">
+		<id property="menuCode" column="BURGER_MENU_CODE"/>
+		<id property="menuName" column="BURGER_MENU_NAME"/>
+		<id property="menuBrand" column="BURGER_MENU_BRAND"/>
+		<id property="menuPrice" column="BURGER_MENU_PRICE"/>
+		<id property="menuRank" column="BURGER_MENU_RANK"/>
+		<id property="userNo" column="USER_NO"/>
+	</resultMap>
+	<select id="selectAllPost" resultMap="menuResultMap">
+		SELECT
+			  A.BURGER_MENU_CODE
+			, A.BURGER_MENU_NAME
+			, A.BURGER_MENU_BRAND
+			, A.BURGER_MENU_PRICE
+			, A.BURGER_MENU_RANK
+			, A.USER_NO
+		FROM TBL_BURGER_MENU.A	
+	</select>
+	
+	<select id="selectPostByMenuCode" parameterType="int" resultMap="menuResultMap">
+		SELECT
+			  A.BURGER_MENU_CODE
+			, A.BURGER_MENU_NAME
+			, A.BURGER_MENU_BRAND
+			, A.BURGER_MENU_PRICE
+			, A.BURGER_MENU_RANK
+			, A.USER_NO
+		FROM TBL_BURGER_MENU.A
+		WHERE A.BURGER_MENU_CODE = # { menuCode }
+	</select>
+	
+	<insert id="insertBurgerMenu" parameterType="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO">
+		INSERT
+			  INTO TBL_BURGER_MENU A
+		 	(
+		 	  A.BURGER_MENU_CODE
+		 	, A.BURGER_MENU_NAME
+		 	, A.BURGER_MENU_BRAND
+		 	, A.BURGER_MENU_PRICE
+		 	, A.BURGER_MENU_RANK
+		 	, A.USER_NO
+		 	)
+		 	VALUES
+		 	(
+		 	  SEQ_BURGER_MENU_CODE_NEXTVAL
+		 	, #{ menuName }
+		 	, #{ menuBrand }
+		 	, #{ menuPrice }
+		 	, #{ menuRank }
+		 	, #{ userNo }
+		 	)
+	</insert>
+	
+	<update id="modifyBurgerMenu" parameterType="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO">
+		UPDATE
+				TBL_BURGER_MENU A
+			SET A.BURGER.MENU_NAME = # { menuName }
+			  , A.BURGER.MENU_BRAND = # { menuBrand }
+			  , A.BURGER.MENU_PRICE = # { menuPrice }
+			  , A.BURGER.MENU_RANK = # { menuRank }
+		 WHERE A.BURGER_MENU_CODE = { menuCode }
+	</update>
+	
+	<delete id="deleteBurgerMenu" parameterType="int">
+		DELETE
+		  FROM TBL_BURGER_MENU A
+		 WHERE A.BURGER_MENU_CODE = { menuCode }
+	</delete>
+</mapper>
