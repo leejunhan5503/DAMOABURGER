@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
     <wb-module deploy-name="DAMOA-Burger-Toy-Project">
+                
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+                
         <property name="context-root" value="toy"/>
+                
         <property name="java-output-path" value="/DAMOA-Burger-Toy-Project/web/WEB-INF/classes"/>
+            
     </wb-module>
+    
 </project-modules>
