@@ -14,7 +14,7 @@
 		</environment>
 	</environments>
 	<mappers>
-	<mapper resource="mappers/com/damoa/toyProject/menu/InsertBurgerPost/model/dao/PostMapper.xml"/>
+	<mapper resource="mappers/com/damoa/toyProject/xmlMappers/PostMapper.xml"/>
 	</mappers>
 </configuration>
 
