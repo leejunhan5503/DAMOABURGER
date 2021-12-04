@@ -2,21 +2,21 @@ package com.damoa.toyProject.menu.controller;
 
 import java.util.List;
 
-import com.damoa.toyProject.menu.PostPrintResultView;
-import com.damoa.toyProject.menu.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.ResultView;
+import com.damoa.toyProject.menu.model.dto.PostDTO;
 import com.damoa.toyProject.menu.model.service.PostService;
 
 public class PostController {
 	private final PostService postService;
-	private final PostPrintResultView resultView;
+	private final ResultView resultView;
 	
 	public PostController() {
-		this.postService = new PostService();
-		this.resultView = new PostPrintResultView();
+		postService = new PostService();
+		resultView = new ResultView();
 	}
 	
 	public void selectAllPost() {
-		List<MenuDTO> menuList = postService.selectAllPost();
+		List<PostDTO> menuList = postService.selectAllPost();
 		
 		if(!menuList.isEmpty()) {
 			resultView.printPostList(menuList);

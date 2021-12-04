@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.damoa.toyProject.menu.model.dao.PostMapper">
+	<resultMap type="com.damoa.toyProject.menu.model.dto.PostDTO" id="menuResultMap">
+		<id property="menuCode" column="MENU_CODE"/>
+		<result property="menuName" column="MENU_NAME"/>
+		<result property="menuBrand" column="MENU_BRAND"/>
+		<result property="menuPrice" column="MENU_PRICE"/>
+		<result property="menuRank" column="MENU_RANK"/>
+		<result property="categoryCode" column="CATEGORY_CODE"/>
+	</resultMap>
+	<select id="selectAllPost" resultMap="menuResultMap">
+		SELECT
+			  A.MENU_CODE
+			, A.MENU_NAME
+			, A.MENU_BRAND
+			, A.MENU_PRICE
+			, A.MENU_RANK
+			, A.CATEGORY_CODE
+	   	  FROM TBL_BURGER_MENU A	
+	</select>
+	
+	<select id="selectPostByMenuCode" parameterType="int" resultMap="menuResultMap">
+		SELECT
+			  A.BURGER_MENU_CODE
+			, A.BURGER_MENU_NAME
+			, A.BURGER_MENU_BRAND
+			, A.BURGER_MENU_PRICE
+			, A.BURGER_MENU_RANK
+			, A.USER_NO
+		FROM TBL_BURGER_MENU.A
+		WHERE A.BURGER_MENU_CODE = # { menuCode }
+	</select>
+	
+	<insert id="insertBurgerMenu" parameterType="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO">
+		INSERT
+			  INTO TBL_BURGER_MENU A
+		 	(
+		 	  A.BURGER_MENU_CODE
+		 	, A.BURGER_MENU_NAME
+		 	, A.BURGER_MENU_BRAND
+		 	, A.BURGER_MENU_PRICE
+		 	, A.BURGER_MENU_RANK
+		 	, A.USER_NO
+		 	)
+		 	VALUES
+		 	(
+		 	  SEQ_BURGER_MENU_CODE_NEXTVAL
+		 	, #{ menuName }
+		 	, #{ menuBrand }
+		 	, #{ menuPrice }
+		 	, #{ menuRank }
+		 	, #{ userNo }
+		 	)
+	</insert>
+	
+	<update id="modifyBurgerMenu" parameterType="com.damoa.toyProject.menu.InsertBurgerPost.model.dto.MenuDTO">
+		UPDATE
+				TBL_BURGER_MENU A
+			SET A.BURGER.MENU_NAME = # { menuName }
+			  , A.BURGER.MENU_BRAND = # { menuBrand }
+			  , A.BURGER.MENU_PRICE = # { menuPrice }
+			  , A.BURGER.MENU_RANK = # { menuRank }
+		 WHERE A.BURGER_MENU_CODE = # { menuCode }
+	</update>
+	
+	<delete id="deleteBurgerMenu" parameterType="int">
+		DELETE
+		  FROM TBL_BURGER_MENU A
+		 WHERE A.BURGER_MENU_CODE = { menuCode }
+	</delete>
+</mapper>

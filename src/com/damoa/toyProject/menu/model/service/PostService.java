@@ -7,19 +7,19 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.damoa.toyProject.menu.model.dao.PostMapper;
-import com.damoa.toyProject.menu.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.model.dto.PostDTO;
 
 public class PostService {
 
-	public List<MenuDTO> selectAllPost() {
+	public List<PostDTO> selectAllPost() {
 		SqlSession sqlSession = getSqlSession();
 		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
 		
-		List<MenuDTO> menuList = postMapper.selectAllPost();
+		List<PostDTO> postList = postMapper.selectAllPost();
 		
 		sqlSession.close();
 		
-		return menuList;
+		return postList;
 	}
 
 }

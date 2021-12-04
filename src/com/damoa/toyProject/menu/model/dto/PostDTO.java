@@ -1,31 +1,36 @@
 package com.damoa.toyProject.menu.model.dto;
 
-public class MenuDTO {
+import java.io.Serializable;
+
+public class PostDTO implements Serializable{
+	
+	private static final long serialVersionUID = 2033992169619151526L;
 	
 	private int menuCode;
 	private String menuName;
 	private String menuBrand;
 	private int menuPrice;
 	private int menuRank;
-	private String userNo;
-	
-	public MenuDTO() {
+	private int categoryCode;
+
+	public PostDTO() {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "MenuDTO [menuCode=" + menuCode + ", menuName=" + menuName + ", menuBrand=" + menuBrand + ", menuPrice="
-				+ menuPrice + ", menuRank=" + menuRank + ", userNo=" + userNo + "]";
-	}
-	public MenuDTO(int menuCode, String menuName, String menuBrand, int menuPrice, int menuRank, String userNo) {
+	public PostDTO(int menuCode, String menuName, String menuBrand, int menuPrice, int menuRank, int categoryCode) {
 		super();
 		this.menuCode = menuCode;
 		this.menuName = menuName;
 		this.menuBrand = menuBrand;
 		this.menuPrice = menuPrice;
 		this.menuRank = menuRank;
-		this.userNo = userNo;
+		this.categoryCode = categoryCode;
+	}
+
+	@Override
+	public String toString() {
+		return "PostDTO [menuCode=" + menuCode + ", menuName=" + menuName + ", menuBrand=" + menuBrand + ", menuPrice="
+				+ menuPrice + ", menuRank=" + menuRank + ", categoryCode=" + categoryCode + "]";
 	}
 
 	public int getMenuCode() {
@@ -68,13 +73,13 @@ public class MenuDTO {
 		this.menuRank = menuRank;
 	}
 
-	public String getUserNo() {
-		return userNo;
+	public int getCategoryCode() {
+		return categoryCode;
 	}
 
-	public void setUserNo(String userNo) {
-		this.userNo = userNo;
+	public void setCategoryCode(int categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 	
 	
-}
+}	

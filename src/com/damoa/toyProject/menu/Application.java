@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 import com.damoa.toyProject.menu.controller.PostController;
 
-public class PostInsertApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		PostController postController = new PostController();
 		Scanner sc = new Scanner(System.in);
+		PostController postController = new PostController();
 		
 		do {
 			System.out.println("==============햄버거 메뉴 게시글 단위 테스트============");
@@ -18,9 +18,9 @@ public class PostInsertApplication {
 			System.out.println("4. 햄버거 게시글 수정하기");
 			System.out.println("5. 햄버거 게시글 삭제하기");
 			System.out.println("9. 게시글 단위 테스트 종료");
-			int num = sc.nextInt();
+			int no = sc.nextInt();
 			
-			switch(num) {
+			switch(no) {
 			case 1 : postController.selectAllPost();break;
 			}
 		} while(true);

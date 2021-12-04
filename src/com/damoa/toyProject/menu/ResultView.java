@@ -2,15 +2,18 @@ package com.damoa.toyProject.menu;
 
 import java.util.List;
 
-import com.damoa.toyProject.menu.model.dto.MenuDTO;
+import com.damoa.toyProject.menu.model.dto.PostDTO;
 
-public class PostPrintResultView {
+public class ResultView {
 
-	public void printPostList(List<MenuDTO> menuList) {
+	public void printPostList(List<PostDTO> menuList) {
 		System.out.println("[성공] 게시글 조회 성공했음");
-		for(MenuDTO list : menuList) {
+		for(PostDTO list : menuList) {
 			System.out.println(list);
 		}
+	}
+	public void printMenu(PostDTO menu) {
+		System.out.println(menu);
 	}
 
 	public void printErrorMessage(String errorCode) {
