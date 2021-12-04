@@ -8,12 +8,4 @@ public interface PostMapper {
 
 	List<PostDTO> selectAllPost();
 	
-//	MenuDTO selectPostBymenuCode (int menuCode);
-//	
-//	int insertBurgerMenu(MenuDTO menu);
-//	
-//	int modifyBurgerMenu(MenuDTO menu);
-//	
-//	int deleteBurgerMenu(int MenuCode);
-
 }

@@ -1,6 +1,7 @@
 package com.damoa.toyProject.menu.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import com.damoa.toyProject.menu.ResultView;
 import com.damoa.toyProject.menu.model.dto.PostDTO;
@@ -25,5 +26,9 @@ public class PostController {
 		}
 		
 	}
+
+//	public void selectMenuByCode(Map<String, String> parameter) {
+//		int code = Integer.valueOf(parameter.get("code"));
+//	}
 
 }
