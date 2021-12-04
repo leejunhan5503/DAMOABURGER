@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.damoa.toyProject.menu.ResultView;
 import com.damoa.toyProject.menu.model.dto.PostDTO;
+import com.damoa.toyProject.menu.model.dto.SearchOption;
 import com.damoa.toyProject.menu.model.service.PostService;
 
 public class PostController {
@@ -25,10 +26,33 @@ public class PostController {
 			resultView.printErrorMessage("selectList");
 		}
 		
+	}	
+	public void selectPostBySearchOption(SearchOption searchOption) {
+		List<PostDTO> searchedPostList = postService.selectPostBySearchOption(searchOption);
+		
+		if(!searchedPostList.isEmpty()) {
+			resultView.printPostList(searchedPostList);
+		} else {
+			resultView.printErrorMessage("selectList");
+		}
 	}
 
-//	public void selectMenuByCode(Map<String, String> parameter) {
-//		int code = Integer.valueOf(parameter.get("code"));
-//	}
+	public void registMenuPost(Map<String, Object> parameter) {
+		PostDTO post = new PostDTO();
+		
+		post.setMenuCode(Integer.valueOf((String) parameter.get("menuCode")));
+		post.setTitle((String) parameter.get("title"));
+		post.setContent((String) parameter.get("content"));
+		post.setMenuBrand((String) parameter.get("menuBrand"));
+		post.setMenuName((String) parameter.get("menuName"));
+		post.setMenuPrice(Integer.valueOf((String) parameter.get("menuPrice")));
+		post.setMenuRank(Integer.valueOf((String) parameter.get("menuRank")));
+		
+		if(postService.registMenuPost(post)) {
+			resultView.printSuccessMessage("insert");
+		} else {
+			resultView.printErrorMessage("insert");
+		}
+	}
 
 }

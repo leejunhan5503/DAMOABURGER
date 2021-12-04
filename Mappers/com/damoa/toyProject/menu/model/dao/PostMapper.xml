@@ -19,5 +19,29 @@
 			 , A.CATEGORY_CODE
 	   	  FROM TBL_BURGER_MENU A	
 	</select>
+	<select id="selectPostBySearchOption" parameterType="searchOption" resultMap="menuResultMap">
+		SELECT
+			   A.MENU_CODE
+			 , A.MENU_NAME
+			 , A.MENU_BRAND
+		 	 , A.MENU_PRICE
+		 	 , A.MENU_RANK
+			 , A.CATEGORY_CODE
+	   	  FROM TBL_BURGER_MENU A	
+	 	<if test="option == 'menuCode'">
+	 	WHERE A.MENU_CODE LIKE '%' || #{value} || '%'
+	 	</if>
+	 	<if test="option == 'menuBrand'">
+	 	WHERE A.MENU_BRAND LIKE '%' || #{value} || '%'
+	 	</if>
+	 	<if test="option == 'menuPrice'">
+	 	WHERE A.MENU_PRICE LIKE '%' || #{value} || '%'
+	 	</if>
+	 	<if test="option == 'menuRank'">
+	 	WHERE A.MENU_RANK LIKE '%' || #{value} || '%'
+	 	</if>
+	 	ORDER BY A.MENU_CODE DESC
+	</select>
+	
 	
 </mapper>

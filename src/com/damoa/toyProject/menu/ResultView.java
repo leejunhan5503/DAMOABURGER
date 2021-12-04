@@ -15,13 +15,21 @@ public class ResultView {
 	public void printMenu(PostDTO menu) {
 		System.out.println(menu);
 	}
+	public void printSuccessMessage(String successCode) {
+		String successMessage = "";
+		
+		switch(successCode) {
+		case "insert" : successMessage = "[Success] 신규 게시글 등록에 성공했습니다.";break;
+		}
+	}
 
+	
 	public void printErrorMessage(String errorCode) {
 		String printErrorMessage = "";
 		
 		switch(errorCode) {
-		case"selectList" : printErrorMessage = "[Errror] 신규 게시글을 등록에 실패했습니다."; break;
-		
+		case "selectList" : printErrorMessage = "[Errror] 신규 게시글을 조화에 실패했습니다."; break;
+		case "selectPostBySearchOption" : printErrorMessage = "[Error] 게시글 목록 검색에 실패했습니다.";break;
 		}
 		
 	}

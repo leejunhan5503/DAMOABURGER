@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.damoa.toyProject.menu.controller.PostController;
+import com.damoa.toyProject.menu.model.dto.SearchOption;
 
 public class Application {
 
@@ -27,20 +28,60 @@ public class Application {
 			
 			switch(no) {
 				case 1 : postController.selectAllPost();break;
-//				case 2 : postController.selectMenuByCode(inputMenuCode());break;
+				case 2 : postController.selectPostBySearchOption(getSearchOption());break;
+				case 3 : postController.registMenuPost(getPostInfo());break;
 			}
 		} while(true);
 		
 	}
 	/* name을 호출할 때 menuName이 호출되고, HashMap에 담겨 나온다. */
-	private static Map<String, String> inputMenuCode() {
+	private static SearchOption getSearchOption() {
+		Scanner sc= new Scanner(System.in);
+		SearchOption searchOption = new SearchOption();
+		
+		System.out.println("게시글을 검색할 옵션을 입력해 주세요" + "선택 가능한 검색 옵션을 다음과 같습니다.");
+		System.out.println("버거 이름 -> \'menuCode\' 입력");
+		System.out.println("버거 브랜드 -> \'menuBrand\'입력");
+		System.out.println("버거 가격 -> \'menuPrice\'입력");
+		System.out.println("버거 별점 -> \'menuRank\'입력");
+		System.out.print("검색옵션 : ");
+		searchOption.setOption(sc.nextLine());
+		System.out.println("검색할 게시물의 " + searchOption.getOption() + "을 입력하세요 : ");
+		searchOption.setValue(sc.nextLine());
+		
+		return searchOption;
+		
+	}
+	
+	private static Map<String, Object> getPostInfo() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("메뉴 코드를 입력하세요.");
-		String code = sc.nextLine();
-		/* 사용자가 입력한 값이 Map형태로 back단에 넘어가게 된다. */
-		Map<String, String> parameter = new HashMap<>();
-		parameter.put("code", code);
-		/* 위에서 parameter.put()메소드를 호출했으므로, parameter를 반환한다. */
+		Map<String, Object> parameter = new HashMap<>();
+		
+		System.out.println("게시글을 등록하기 위해 등록할 게시글의 정보가 필요합니다.");
+		System.out.print("게시글의 메뉴 코드를 입력해 주세요 : ");
+		int menuCode = sc.nextInt();
+		System.out.print("게시글의 제목을 입력해 주세요 : ");
+		String title = sc.nextLine();
+		System.out.print("게시글의 내용을 입력해 주세요 : ");
+		String content = sc.nextLine();
+		System.out.print("햄버거 브랜드를 입력해 주세요 : ");
+		String menuBrand = sc.nextLine();
+		System.out.println("헴버거 이름을 입력해주세요 : ");
+		String menuName = sc.nextLine();
+		System.out.println("햄버거의 가격을 입력해주세요 : ");
+		int menuPrice = sc.nextInt();
+		sc.nextLine();
+		System.out.println("헴버거의 별점을 입력해주세요 : ");
+		int menuRank = sc.nextInt();
+		
+		parameter.put("menuCode", menuCode);
+		parameter.put("title", title);
+		parameter.put("content", content);
+		parameter.put("menuBrand", menuBrand);
+		parameter.put("menuName", menuName);
+		parameter.put("menuPrice", menuPrice);
+		parameter.put("menuRank", menuRank);
+		
 		return parameter;
 	}
 }
