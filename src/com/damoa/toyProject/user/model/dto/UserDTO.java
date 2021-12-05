@@ -3,12 +3,7 @@ package com.damoa.toyProject.user.model.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
-/*
- *  implements Serializable 를 사용하는 이유는 ? 직렬화 떄문 이라고 하는데 아직 이해못함.
- *  => 자바 빈 형태의 DTO를 더욱 명확하게 만들기 위해서입니다. (이준한)
- */
 public class UserDTO implements Serializable {
-
 	private static final long serialVersionUID = 6035064647152544048L;
 
 	private int userNo;
@@ -32,11 +27,6 @@ public class UserDTO implements Serializable {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "UserDTO [userNo=" + userNo + ", userName=" + userName + ", userId=" + userId + ", userPwd=" + userPwd
-				+ ", enrollDate=" + enrollDate + ", email=" + email + "]";
-	}
 
 	public int getUserNo() {
 		return userNo;
@@ -90,5 +80,9 @@ public class UserDTO implements Serializable {
 		return serialVersionUID;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "UserDTO [userNo=" + userNo + ", userName=" + userName + ", userId=" + userId + ", userPwd=" + userPwd
+				+ ", enrollDate=" + enrollDate + ", email=" + email + "]";
+	}
 }

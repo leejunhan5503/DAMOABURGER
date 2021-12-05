@@ -9,9 +9,9 @@
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="email" column="EMAIL"/>
 	</resultMap>
-	<insert id="registUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
+	<insert id="insertUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
 		INSERT
-		  INTO "USER" A
+		  INTO USER A
 		(
 		  A.USER_NO
 		, A.USER_NAME
@@ -25,7 +25,7 @@
 	   , #{ name }
 	   , #{ id }
 	   , #{ pwd }
-	   , #{ date }
+	   , #{ date }	
 	   , #{ email }
 		)   
 	</insert>
