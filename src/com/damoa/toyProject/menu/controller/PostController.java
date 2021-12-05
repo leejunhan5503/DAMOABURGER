@@ -15,8 +15,7 @@ public class PostController {
 	public PostController() {
 		postService = new PostService();
 		resultView = new ResultView();
-	}
-	
+	}	
 	public void selectAllPost() {
 		List<PostDTO> menuList = postService.selectAllPost();
 		
@@ -37,16 +36,16 @@ public class PostController {
 		}
 	}
 
-	public void registMenuPost(Map<String, Object> parameter) {
+	public void registMenuPost(Map<String, String> parameter) {
 		PostDTO post = new PostDTO();
 		
-		post.setMenuCode(Integer.valueOf((String) parameter.get("menuCode")));
-		post.setTitle((String) parameter.get("title"));
-		post.setContent((String) parameter.get("content"));
-		post.setMenuBrand((String) parameter.get("menuBrand"));
-		post.setMenuName((String) parameter.get("menuName"));
-		post.setMenuPrice(Integer.valueOf((String) parameter.get("menuPrice")));
-		post.setMenuRank(Integer.valueOf((String) parameter.get("menuRank")));
+		post.setTitle(parameter.get("title"));
+		post.setContent(parameter.get("content"));
+		post.setMenuBrand(parameter.get("menuBrand"));
+		post.setMenuName(parameter.get("menuName"));
+		post.setMenuPrice(Double.valueOf(parameter.get("menuPrice")));
+		post.setMenuRank(Integer.valueOf(parameter.get("menuRank")));
+		post.setCategoryCode(Integer.valueOf(parameter.get("categoryCode")));
 		
 		if(postService.registMenuPost(post)) {
 			resultView.printSuccessMessage("insert");

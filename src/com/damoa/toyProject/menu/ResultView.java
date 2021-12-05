@@ -30,6 +30,7 @@ public class ResultView {
 		switch(errorCode) {
 		case "selectList" : printErrorMessage = "[Errror] 신규 게시글을 조화에 실패했습니다."; break;
 		case "selectPostBySearchOption" : printErrorMessage = "[Error] 게시글 목록 검색에 실패했습니다.";break;
+		case "insert" : printErrorMessage = "[Error] 게시글 등록에 실패했습니다.";break;
 		}
 		
 	}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.damoa.toyProject.user.model.dao.UserMapper">
+	<resultMap type="com.damoa.toyProject.user.model.dto.UserDTO" id="userResultMap">
+		<id property="no" column="USER_NO"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="email" column="EMAIL"/>
+	</resultMap>
+	<insert id="registUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
+		INSERT
+		  INTO "USER" A
+		(
+		  A.USER_NO
+		, A.USER_NAME
+		, A.USER_PWD
+		, A.ENROLL_DATE  
+		, A.EMAIL
+		)
+		 VALUES
+		(
+		 SEQ_USER_NO.NEXTVAL
+	   , #{ name }
+	   , #{ id }
+	   , #{ pwd }
+	   , #{ date }
+	   , #{ email }
+		)   
+	</insert>
+</mapper>

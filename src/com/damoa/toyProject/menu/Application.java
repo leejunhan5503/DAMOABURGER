@@ -53,28 +53,25 @@ public class Application {
 		
 	}
 	
-	private static Map<String, Object> getPostInfo() {
+	private static Map<String, String> getPostInfo() {
+		
 		Scanner sc = new Scanner(System.in);
-		Map<String, Object> parameter = new HashMap<>();
+		Map<String, String> parameter = new HashMap<>();
 		
 		System.out.println("게시글을 등록하기 위해 등록할 게시글의 정보가 필요합니다.");
-		System.out.print("게시글의 메뉴 코드를 입력해 주세요 : ");
-		int menuCode = sc.nextInt();
-		System.out.print("게시글의 제목을 입력해 주세요 : ");
+		System.out.print("게시글의 제목을 입력해 주세요:");
 		String title = sc.nextLine();
-		System.out.print("게시글의 내용을 입력해 주세요 : ");
+		System.out.print("게시글의 내용을 입력해 주세요:");
 		String content = sc.nextLine();
-		System.out.print("햄버거 브랜드를 입력해 주세요 : ");
+		System.out.print("햄버거 브랜드를 입력해 주세요:");
 		String menuBrand = sc.nextLine();
-		System.out.println("헴버거 이름을 입력해주세요 : ");
+		System.out.print("헴버거 이름을 입력해주세요:");
 		String menuName = sc.nextLine();
-		System.out.println("햄버거의 가격을 입력해주세요 : ");
-		int menuPrice = sc.nextInt();
-		sc.nextLine();
-		System.out.println("헴버거의 별점을 입력해주세요 : ");
-		int menuRank = sc.nextInt();
+		System.out.print("햄버거의 가격을 입력해주세요:");
+		String menuPrice = sc.nextLine();
+		System.out.print("헴버거의 별점을 입력해주세요:");
+		String menuRank = sc.nextLine();
 		
-		parameter.put("menuCode", menuCode);
 		parameter.put("title", title);
 		parameter.put("content", content);
 		parameter.put("menuBrand", menuBrand);

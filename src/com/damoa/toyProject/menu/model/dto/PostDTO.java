@@ -9,7 +9,7 @@ public class PostDTO implements Serializable{
 	private int menuCode;
 	private String menuName;
 	private String menuBrand;
-	private int menuPrice;
+	private Double menuPrice;
 	private int menuRank;
 	private String title;
 	private String content;
@@ -19,7 +19,7 @@ public class PostDTO implements Serializable{
 		super();
 	}
 
-	public PostDTO(int menuCode, String menuName, String menuBrand, int menuPrice, int menuRank, String title,
+	public PostDTO(int menuCode, String menuName, String menuBrand, Double menuPrice, int menuRank, String title,
 			String content, int categoryCode) {
 		super();
 		this.menuCode = menuCode;
@@ -63,11 +63,11 @@ public class PostDTO implements Serializable{
 		this.menuBrand = menuBrand;
 	}
 
-	public int getMenuPrice() {
+	public Double getMenuPrice() {
 		return menuPrice;
 	}
 
-	public void setMenuPrice(int menuPrice) {
+	public void setMenuPrice(Double menuPrice) {
 		this.menuPrice = menuPrice;
 	}
 

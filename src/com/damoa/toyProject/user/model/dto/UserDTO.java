@@ -5,69 +5,90 @@ import java.sql.Date;
 
 /*
  *  implements Serializable 를 사용하는 이유는 ? 직렬화 떄문 이라고 하는데 아직 이해못함.
+ *  => 자바 빈 형태의 DTO를 더욱 명확하게 만들기 위해서입니다. (이준한)
  */
 public class UserDTO implements Serializable {
 
 	private static final long serialVersionUID = 6035064647152544048L;
 
 	private int userNo;
-	private String name;
-	private String id;
-	private String pwd;
-	private Date enrollDate;
+	private String userName;
+	private String userId;
+	private String userPwd;
+	private java.util.Date enrollDate;
 	private String email;
 
 	public UserDTO() {
 	}
-	public UserDTO(int userNo, String name, String id, String pwd, Date enrollDate, String email) {
+
+	public UserDTO(int userNo, String userName, String userId, String userPwd, java.util.Date enrollDate,
+			String email) {
+		super();
 		this.userNo = userNo;
-		this.name = name;
-		this.id = id;
-		this.pwd = pwd;
+		this.userName = userName;
+		this.userId = userId;
+		this.userPwd = userPwd;
 		this.enrollDate = enrollDate;
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [userNo=" + userNo + ", userName=" + userName + ", userId=" + userId + ", userPwd=" + userPwd
+				+ ", enrollDate=" + enrollDate + ", email=" + email + "]";
+	}
+
 	public int getUserNo() {
 		return userNo;
 	}
+
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	public String getName() {
-		return name;
+
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getId() {
-		return id;
+
+	public String getUserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getPwd() {
-		return pwd;
+
+	public String getUserPwd() {
+		return userPwd;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
-	public Date getEnrollDate() {
+
+	public java.util.Date getEnrollDate() {
 		return enrollDate;
 	}
-	public void setEnrollDate(Date enrollDate) {
+
+	public void setEnrollDate(java.util.Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Override
-	public String toString() {
-		return "UserDTO [userNo=" + userNo + ", name=" + name + ", id=" + id + ", pwd=" + pwd + ", enrollDate="
-				+ enrollDate + ", email=" + email + "]";
-	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 }

@@ -17,11 +17,6 @@ public class SearchOption implements Serializable{
 		this.value = value;
 	}
 
-	@Override
-	public String toString() {
-		return "SearchOption [option=" + option + ", value=" + value + "]";
-	}
-
 	public String getOption() {
 		return option;
 	}
@@ -37,4 +32,10 @@ public class SearchOption implements Serializable{
 	public void setValue(String value) {
 		this.value = value;
 	}
+
+	@Override
+	public String toString() {
+		return "SearchOption [option=" + option + ", value=" + value + "]";
+	}
+	
 }

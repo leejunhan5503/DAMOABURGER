@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+<context-param>
+  	<param-name>mybatis-config-location</param-name>
+  	<param-value>/WEB-INF/config/mybatis-config.xml</param-value>
+</context-param>  
+
+<servlet>
+    <servlet-name>signup</servlet-name>
+    <jsp-file>/WEB-INF/views/user/registForm.jsp</jsp-file>                                            
+</servlet>
+  
 </web-app>
