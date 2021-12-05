@@ -45,7 +45,6 @@ public class PostController {
 		post.setMenuName(parameter.get("menuName"));
 		post.setMenuPrice(Double.valueOf(parameter.get("menuPrice")));
 		post.setMenuRank(Integer.valueOf(parameter.get("menuRank")));
-		post.setCategoryCode(Integer.valueOf(parameter.get("categoryCode")));
 		
 		if(postService.registMenuPost(post)) {
 			resultView.printSuccessMessage("insert");

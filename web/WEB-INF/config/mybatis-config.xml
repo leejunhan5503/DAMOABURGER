@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 	<properties resource="connection-info.properties"></properties>
 	<environments default="dev">
@@ -14,7 +16,7 @@
 		</environment>
 	</environments>
 	<mappers>
-	<mapper resource="mappers/com/damoa/toyProject/xmlMappers/PostMapper.xml"/>
+	<mapper resource="Mappers/com/damoa/toyProject/menu/model/dao/PostMapper.xml"/>
 	</mappers>
 </configuration>
 

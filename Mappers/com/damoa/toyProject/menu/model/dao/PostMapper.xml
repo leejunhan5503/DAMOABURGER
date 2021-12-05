@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.damoa.toyProject.menu.model.dao.PostMapper">
 	<resultMap type="com.damoa.toyProject.menu.model.dto.PostDTO" id="menuResultMap">
 		<id property="menuCode" column="MENU_CODE"/>
@@ -19,7 +21,7 @@
 			 , A.CATEGORY_CODE
 	   	  FROM TBL_BURGER_MENU A	
 	</select>
-	<select id="selectPostBySearchOption" parameterType="SearchOption" resultMap="menuResultMap">
+	<select id="selectPostBySearchOption" parameterType="com.damoa.toyProject.menu.model.dto.SearchOption" resultMap="menuResultMap">
 		SELECT
 			   A.MENU_CODE
 			 , A.MENU_NAME
@@ -42,9 +44,9 @@
 	 	</if>
 	 	ORDER BY A.MENU_CODE DESC
 	</select>
-	<insert id="registMenuPost" parameterType="com.damoa.toyProject.menu.model.dto.PostDTO">
+	<insert id="insertNewPost" parameterType="com.damoa.toyProject.menu.model.dto.PostDTO">
 		INSERT
-		  INTO TBL_BURGER_MENU
+		  INTO TBL_BURGER_MENU A
 		  (
 		   A.MENU_CODE
 		 , A.TITLE
@@ -53,7 +55,6 @@
 		 , A.MENU_NAME
 		 , A.MENU_PRICE
 		 , A.MENU_RANK
-		 , A.CATEGORY_CODE
 		  )
 		  VALUES
 		 (
@@ -64,7 +65,6 @@
 		, #{menuName}
 		, #{menuPrice}
 		, #{menuRank} 
-		, 1
 		 ) 
 	</insert>
 </mapper>
