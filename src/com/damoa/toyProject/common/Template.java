@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import com.damoa.toyProject.menu.model.dao.PostMapper;
+import com.damoa.toyProject.user.model.dao.UserMapper;
 
 public class Template {
 	private static String DRIVER ="oracle.jdbc.driver.OracleDriver";
@@ -32,6 +33,7 @@ public class Template {
 			configuration.addMapper(PostMapper.class);
 		
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
+			sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
 		} 
 		return sqlSessionFactory.openSession(false);
 	}

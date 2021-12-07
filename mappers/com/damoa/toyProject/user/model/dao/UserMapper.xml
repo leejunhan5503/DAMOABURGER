@@ -8,28 +8,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="userName" column="USER_NAME"/>
 		<result property="userId" column="USER_ID"/>
 		<result property="userPwd" column="USER_PWD"/>
-		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="email" column="EMAIL"/>
 	</resultMap>
-	<insert id="insertUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
+	<insert id="registNewUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
 		INSERT
 		  INTO "USER" A
-		(
-		  A.USER_NO
-		, A.USER_NAME
-		, A.USER_ID
-		, A.USER_PWD
-		, A.ENROLL_DATE
-		, A.EMAIL
-		)
-		 VALUES
-		(
-		 SEQ_USER_NO.NEXTVAL
-	   , #{name}
-	   , #{id}
-	   , #{pwd}
-	   , SYSDATE
-	   , #{email}
-		)
+		  (
+		   A.USER_NO
+		 , A.USER_NAME
+		 , A.USER_ID
+		 , A.USER_PWD
+		 , A.EMAIL
+		 , A.ENROLL_DATE
+		  )
+		  VALUES
+		  (
+		   SEQ_USER_NO.NEXTVAL
+		 , #{userName}
+		 , #{userId}
+		 , #{userPwd}
+		 , #{email}
+		 , SYSDATE
+		  )
 	</insert>
 </mapper>

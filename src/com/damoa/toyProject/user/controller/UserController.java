@@ -18,14 +18,14 @@ public class UserController {
 		printResult = new PrintResult();
 	}
 	
-	public void registUser(Map<String, String> parameter) {
+	public void registNewUser(Map<String, String> parameter) {
 		UserDTO user = new UserDTO();
 		user.setUserName(parameter.get("userName"));
 		user.setUserId(parameter.get("userId"));
 		user.setUserPwd(parameter.get("userPwd"));
 		user.setEmail(parameter.get("email"));
 		
-	if (userService.registUser(user)) {
+	if (userService.registNewUser(user)) {
 		printResult.printSuccessMessage("insert");
 	} else {
 		printResult.printErrorMessage("insert");

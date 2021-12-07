@@ -22,13 +22,13 @@ public class Application {
 			int no = sc.nextInt();
 			
 			switch(no) {
-				case 1 : userController.registUser(signupUser());break;
+				case 1 : userController.registNewUser(insertNewUser());break;
 			}
 			
 		} while(true);
 	}
 	
-	private static Map<String, String> signupUser() {
+	private static Map<String, String> insertNewUser() {
 		Scanner sc = new Scanner(System.in);
 		Map<String, String> parameter = new HashMap<>();
 		
