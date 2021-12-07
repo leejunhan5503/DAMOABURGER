@@ -1,7 +1,5 @@
 package com.damoa.toyProject.user;
 
-import java.util.List;
-
 import com.damoa.toyProject.user.model.dto.UserDTO;
 
 public class PrintResult {

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
+
 import com.damoa.toyProject.menu.controller.PostController;
 import com.damoa.toyProject.menu.model.dto.SearchOption;
 
@@ -24,12 +26,15 @@ public class Application {
 			System.out.println("4. 햄버거 게시글 수정하기");
 			System.out.println("5. 햄버거 게시글 삭제하기");
 			System.out.println("9. 게시글 단위 테스트 종료");
-			int no = sc.nextInt();
+			int num = sc.nextInt();
 			
-			switch(no) {
-				case 1 : postController.selectAllPost();break;
-				case 2 : postController.selectPostBySearchOption(getSearchOption());break;
-				case 3 : postController.registMenuPost(getPostInfo());break;
+			switch(num) {
+			case 1: postController.selectAllPost();break;
+			case 2: postController.selectPostBySearchOption(getSearchOption());break;
+			case 3: postController.registMenuPost(getPostInfo());break;
+			case 4: postController.modifyMenuPost(updatePost());break;
+			case 9: System.out.println("게시글 단위 테스트 종료."); return;
+			default: System.out.println("올바르지 않은 번호를 입력하였습니다! : " + num);
 			}
 		} while(true);
 		
@@ -81,4 +86,40 @@ public class Application {
 		
 		return parameter;
 	}
+	private static Map<String, Object> updatePost() {
+		
+		Scanner sc = new Scanner(System.in);
+		Map<String, Object> parameter = new HashMap<>();
+		
+		System.out.println("게시글을 수정하기 위해 정보를 수집합니다.");
+		System.out.println("수정할 게시글의 코드를 입력해 주세요");
+		int menuCode = sc.nextInt();
+		sc.nextLine();
+		System.out.println("게시글의 제목을 수정하려면, 수정 후로 결정될 게시글의 제목을 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요.");
+		String title = sc.nextLine();
+		System.out.println("게시글의 내용을 수정하려면, 수정 후로 결정될 게시글의 내용을 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요 ");
+		String content = sc.nextLine();
+		System.out.println("햄버거의 이름을 수정하려면, 수정 후로 결정될 햄버거의 이름을 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요 ");
+		String menuName = sc.nextLine();
+		System.out.println("햄버거의 브랜드를 수정하려면, 수정 후로 결정될 햄버거의 브랜드를 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요 ");
+		String menuBrand = sc.nextLine();
+		System.out.println("햄버거의 가격을 수정하려면, 수정 후로 결정될 햄버거의 가격을 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요 ");
+		double menuPrice = sc.nextInt();
+		System.out.println("햄버거의 별점을 수정하려면, 수정 후로 결정될 햄버거의 별점을 입력하세요(수정을 원치 않을 경우 Enter를 눌러주세요 ");
+		int menuRank = sc.nextInt();
+		sc.nextLine();
+		
+		parameter.put("menuCode", menuCode);
+		parameter.put("title", title);
+		parameter.put("content", content);
+		parameter.put("menuName", menuName);
+		parameter.put("menuBrand", menuBrand);
+		parameter.put("menuPrice", menuPrice);
+		parameter.put("menuRank", menuRank);
+		
+		return parameter;
+	
+	}
+		
+	
 }

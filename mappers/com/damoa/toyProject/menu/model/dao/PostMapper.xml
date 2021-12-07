@@ -18,7 +18,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			 , A.MENU_BRAND
 		 	 , A.MENU_PRICE
 		 	 , A.MENU_RANK
-			 , A.CATEGORY_CODE
 	   	  FROM TBL_BURGER_MENU A	
 	</select>
 	<select id="selectPostBySearchOption" parameterType="com.damoa.toyProject.menu.model.dto.SearchOption" resultMap="menuResultMap">
@@ -54,7 +53,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 , A.MENU_BRAND
 		 , A.MENU_NAME
 		 , A.MENU_PRICE
+		 <if test="menuRank != null and menuRank gt 0 and menuRank lte 10">
 		 , A.MENU_RANK
+		 </if>
 		  )
 		  VALUES
 		 (
@@ -67,4 +68,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, #{menuRank} 
 		 ) 
 	</insert>
+	<update id="modifyMenuPost" parameterType="hashMap">
+		UPDATE
+			   TBL_BURGER_MENU A
+		<set>
+			<if test="menuCode != null and menuCode gt 0">
+			, A.MENU_CODE = #{menuCode}
+			</if>
+			<if test="title != null and title !=''">
+			, A.TITLE = #{title}
+			</if>
+			<if test="content != null and content != ''">
+			, A.CONTENT = #{content}
+			</if>
+			<if test="menuBrand != null and menuBrand != ''">
+			, A.MENU_BRAND = #{menuBrand}
+			</if>
+			<if test="menuName != null and menuName != ''">
+			, A.MENU_NAME = #{menuName}
+			</if>
+			<if test="menuPrice != null and menuPrice gt 0">
+			, A.MENU_PRICE = #{menuPrice}
+			</if>
+			<if test="menuRank != null and menuRank gt 0 and menuRank lte 10">
+			, A.MENU_RANK = #{menuRank}
+			</if>
+		</set>	   
+	</update>
 </mapper>

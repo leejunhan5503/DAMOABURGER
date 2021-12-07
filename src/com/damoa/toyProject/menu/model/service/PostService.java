@@ -3,6 +3,7 @@ package com.damoa.toyProject.menu.model.service;
 import static com.damoa.toyProject.common.Template.getSqlSession;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -43,7 +44,21 @@ public class PostService {
 		} else {
 			sqlSession.rollback();
 		}
+		sqlSession.close();
+		return result > 0 ? true : false;
+	}
+
+	public boolean modifyMenuPost(Map<String, Object> parameter) {
+		SqlSession sqlSession = getSqlSession();
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
 		
+		int result = postMapper.modifyMenuPost(parameter);
+		if(result>0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.commit();
+		}
+		sqlSession.close();
 		return result > 0 ? true : false;
 	}
 

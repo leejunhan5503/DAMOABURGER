@@ -1,29 +1,26 @@
 package com.damoa.toyProject.user.model.service;
 
+import static com.damoa.toyProject.common.Template.getSqlSession;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.damoa.toyProject.user.model.dao.UserMapper;
 import com.damoa.toyProject.user.model.dto.UserDTO;
 
-import static com.damoa.toyProject.common.Template.getSqlSession;
-
 public class UserService {
 	
-	public boolean registUser(UserDTO user) {
-		SqlSession sqlSession = getSqlSession();
+	public boolean registUser(UserDTO insertUser) {
+		/* DB와 연결해주는 sqlSession 객체를 생성해줍니다. */
+		SqlSession sqlession = getSqlSession();
+		UserMapper userMapper = sqlession.getMapper(UserMapper.class);
 		
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		
-		int result = userMapper.insertUser(user);
-		
+		int result = userMapper.insertUser(insertUser);
 		if (result > 0) {
-			sqlSession.commit();
+			sqlession.commit();
 		} else {
-			sqlSession.rollback();
+			sqlession.rollback();
 		}
-		
-		sqlSession.close();
-		
+		sqlession.close();
 		return result > 0 ? true : false;
 	}
 }

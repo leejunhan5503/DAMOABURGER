@@ -16,7 +16,7 @@ public class Template {
 	private static String USER = "DAMOA";
 	private static String PASSWORD = "DAMOA";
 	
-private static SqlSessionFactory sqlSessionFactory;
+	private static SqlSessionFactory sqlSessionFactory;
 	
 	public static SqlSession getSqlSession() {
 		

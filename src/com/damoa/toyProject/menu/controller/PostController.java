@@ -52,5 +52,12 @@ public class PostController {
 			resultView.printErrorMessage("insert");
 		}
 	}
+	public void modifyMenuPost(Map<String, Object> parameter) {
+		if (postService.modifyMenuPost(parameter)) {
+			resultView.printSuccessMessage("update");
+		} else {
+			resultView.printErrorMessage("update");
+		}
+	}
 
 }
