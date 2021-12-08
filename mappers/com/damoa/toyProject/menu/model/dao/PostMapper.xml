@@ -95,4 +95,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</set>	   
 	</update>
+	
+	<delete id ="deleteMenuPost" parameterType="com.damoa.toyProject.menu.model.dto.PostDTO">
+		DELETE
+			FROM TBL_BURGER_MENU A
+		 WHERE A.MENU_CODE = #{menuCode}
+	</delete>
 </mapper>

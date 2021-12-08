@@ -62,4 +62,19 @@ public class PostService {
 		return result > 0 ? true : false;
 	}
 
+	public boolean deleteMenuPost(int menuCode) {
+		SqlSession sqlSession = getSqlSession();
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.deleteMenuPost(menuCode);
+		if (result>0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
 }
