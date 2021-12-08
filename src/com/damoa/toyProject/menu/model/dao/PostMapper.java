@@ -15,5 +15,7 @@ public interface PostMapper {
 	int insertNewPost(PostDTO post);
 
 	int modifyMenuPost(Map<String, Object> parameter);
+
+	int deleteMenuPost(int menuCode);
 	
 }

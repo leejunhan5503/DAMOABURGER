@@ -33,6 +33,7 @@ public class Application {
 			case 2: postController.selectPostBySearchOption(getSearchOption());break;
 			case 3: postController.registMenuPost(getPostInfo());break;
 			case 4: postController.modifyMenuPost(updatePost());break;
+			case 5: postController.deleteMenuPost(deleteMenuPost());break;
 			case 9: System.out.println("게시글 단위 테스트 종료."); return;
 			default: System.out.println("올바르지 않은 번호를 입력하였습니다! : " + num);
 			}
@@ -119,6 +120,24 @@ public class Application {
 		
 		return parameter;
 	
+	}
+	
+	private static Map<String, String> deleteMenuPost() {
+		Scanner sc = new Scanner(System.in);
+		Map<String, String> parameter = new HashMap<>();
+		
+		System.out.println("게시글을 삭제하기 위해 게시글의 번호가 필요합니다.");
+		System.out.print("삭제하고 싶은 게시글의 번호를 입력해주세요");
+		String menuCode = sc.nextLine();
+		
+		parameter.put("menuCode", menuCode);
+		
+		return parameter;
+		
+		
+		
+		
+		
 	}
 		
 	

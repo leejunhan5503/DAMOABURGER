@@ -59,5 +59,15 @@ public class PostController {
 			resultView.printErrorMessage("update");
 		}
 	}
+	
+	public void deleteMenuPost(Map<String, String> parameter) {
+		int menuCode = Integer.valueOf(parameter.get("menuCode"));
+		
+		if (postService.deleteMenuPost(menuCode)) {
+			resultView.printSuccessMessage("delete");
+		} else { 
+			resultView.printErrorMessage("delete");
+		}
+		}
 
 }
