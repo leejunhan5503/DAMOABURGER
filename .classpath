@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="src" path="mappers"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>

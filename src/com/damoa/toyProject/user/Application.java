@@ -17,15 +17,27 @@ public class Application {
 		do {
 			System.out.println("(1)회원가입, (2)로그인, (3)로그아웃 단위 테스트");
 			System.out.println("1. 회원가입을 실시합니다.");
-			System.out.println("2. 로그인을 시도합니다.");
+			System.out.println("2. 로그인");
 			System.out.println("3. 로그아웃을 시도합니다.");
 			int no = sc.nextInt();
 			
 			switch(no) {
 				case 1 : userController.registNewUser(insertNewUser());break;
+				case 2 : userController.selectUserByCode(inputUserNo());break;
 			}
 			
 		} while(true);
+	}
+	
+	private static Map<String, String> inputUserNo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("사용자 코드를 입력하세요");
+		String userNo = sc.nextLine();
+		
+		Map<String, String> parameter = new HashMap<>();
+		parameter.put("userNo", userNo);//사용자가 입력한 값이 Map형태로 back단으로 넘어가게 된다.
+		
+		return parameter;//위에서 parameter가 put을 했으므로 parameter를 반환한다. 
 	}
 	
 	private static Map<String, String> insertNewUser() {

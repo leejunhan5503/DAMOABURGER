@@ -1,5 +1,7 @@
 package com.damoa.toyProject.user;
 
+import java.util.List;
+
 import com.damoa.toyProject.user.model.dto.UserDTO;
 
 public class PrintResult {
@@ -24,6 +26,9 @@ public class PrintResult {
 		System.out.println(errorMessage);
 	}
 
+	public void printUserList(UserDTO user) {
+			System.out.println(user);
+	}
 }
 
 

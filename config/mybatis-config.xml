@@ -4,11 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 	<properties resource="connection-info.properties"></properties>
-	
-	<typeAliases>
-		<typeAlias type="Mappers/com/damoa/toyProject/menu/model/dao/PostMapper.xml" alias="PostMapper.xml"/>
-	</typeAliases>	
-	
+
 	<environments default="dev">
 		<environment id="dev">
 			<transactionManager type="JDBC"/>
@@ -21,9 +17,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-		<mapper class="PostMapper.xml" />
+		<mapper resource="com/damoa/toyProject/menu/model/dao/PostMapper.xml" />
 		<!-- typeAlias 적용 안 한 경우 -->
-		<mapper class="Mappers/com/damoa/toyProject/user/model/dao/UserMapper.xml" />
+		<mapper resource="com/damoa/toyProject/user/model/dao/UserMapper.xml" />
 	</mappers>
 </configuration>
 

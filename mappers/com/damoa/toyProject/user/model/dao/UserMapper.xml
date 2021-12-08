@@ -10,9 +10,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="userPwd" column="USER_PWD"/>
 		<result property="email" column="EMAIL"/>
 	</resultMap>
-	<insert id="registNewUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
+<!--  	<select id="selectUserByCode" parameterType="_int" resultType="userResultMap">
+		SELECT
+		       A.USER_NO
+		     , A.USER_NAME
+		     , A.USER_ID
+		     , A.USER_PWD
+		     , A.ENROLL_DATE
+		     , A.EMAIL
+		 FROM "USER" A
+		  AND A.USER_NO = #{userNo}     
+	</select> -->
+	<insert id="insertNewUser" parameterType="com.damoa.toyProject.user.model.dto.UserDTO">
 		INSERT
-		  INTO "USER" A
+		  INTO TBL_USER A
 		  (
 		   A.USER_NO
 		 , A.USER_NAME
@@ -24,8 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  VALUES
 		  (
 		   SEQ_USER_NO.NEXTVAL
+		 , #{userNo}
 		 , #{userName}
-		 , #{userId}
 		 , #{userPwd}
 		 , #{email}
 		 , SYSDATE

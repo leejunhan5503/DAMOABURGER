@@ -18,7 +18,23 @@ public class UserController {
 		printResult = new PrintResult();
 	}
 	
+	public void selectUserByCode(Map<String, String> parameter) {
+		int userNo = Integer.valueOf(parameter.get("userNo"));
+		UserDTO user = userService.selectUserByCode(userNo);
+		
+		if(user != null) {
+			printResult.printUserList(user);
+		} else {
+			printResult.printErrorMessage("selectUser");
+		}
+	}
+	
 	public void registNewUser(Map<String, String> parameter) {
+		String userName = parameter.get("userName");
+		String userId = parameter.get("userId");
+		String userPwd = parameter.get("userPwd");
+		String email = parameter.get("email");
+		
 		UserDTO user = new UserDTO();
 		user.setUserName(parameter.get("userName"));
 		user.setUserId(parameter.get("userId"));
